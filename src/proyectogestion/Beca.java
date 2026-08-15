@@ -15,3 +15,5 @@ public class Beca {
     private int cupos;
        
 }
+
+"metiendo mano al código:)"
