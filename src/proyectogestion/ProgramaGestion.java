@@ -3,17 +3,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package proyectogestion;
+import java.util.HashMap;
+import java.util.ArrayList;
 
 /**
  *
- * @author aaron
+ * @author curruk
  */
-public class Beca {
+public class ProgramaGestion {
     
-    private int codigo;
-    private String nombre;
-    private int puntajeMinimo;
-    private int cupos;
-    
+    private HashMap<Integer, Beca> mapaBecas;
+    private ArrayList<Estudiante> listaEstudiantes;
     
 }

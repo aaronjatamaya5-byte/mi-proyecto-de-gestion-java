@@ -6,14 +6,8 @@ package proyectogestion;
 
 /**
  *
- * @author aaron
+ * @author curruk
  */
-public class Beca {
-    
-    private int codigo;
-    private String nombre;
-    private int puntajeMinimo;
-    private int cupos;
-    
+public class Postulacion {
     
 }
