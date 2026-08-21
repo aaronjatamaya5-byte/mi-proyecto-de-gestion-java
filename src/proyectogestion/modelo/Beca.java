@@ -87,4 +87,21 @@ public class Beca {
     {
         return 0.0;
     }
+
+
+    public ArrayList<Postulacion> obtenerPostulantesAptos() //Filtra a los postulantes que superan el ptje minimo
+    {
+        ArrayList<Postulacion> aptos = new ArrayList<>();
+    
+        for (Postulacion p : listaPostulaciones)
+        {
+           double puntaje = calcularPuntaje(p.getPostulante());
+           
+            if (puntaje >= puntajeMinimo)
+            {
+            aptos.add(p);
+            }
+        }
+        return aptos;
+    }
 }
