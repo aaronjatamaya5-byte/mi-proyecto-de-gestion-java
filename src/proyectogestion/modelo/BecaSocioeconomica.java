@@ -15,8 +15,13 @@ public class BecaSocioeconomica extends Beca{
         super(codigo,nombreBeca,puntajeMinimo,cupos);
     }
     
-    public double calcularPuntaje()
+    @Override //Sobreescitura de metodo
+    public double calcularPuntaje(Estudiante postulante)
     {
-        return 0.0;
+        //Si el estudiante tiene menor porcentaje y menores ingresos familiares, su puntaje sera mayor
+        double rsh=postulante.getPorcentajeRSH();
+        int ingresos=postulante.getIngresosFamiliares();
+        double puntaje = ((100-rsh)*10)+1000000.0/(ingresos+1);
+        return puntaje;
     }
 }

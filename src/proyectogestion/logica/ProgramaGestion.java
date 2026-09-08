@@ -17,4 +17,6 @@ public class ProgramaGestion {
     private HashMap<Integer, Beca> mapaBecas;
     private ArrayList<Estudiante> listaEstudiantes;
     
+    
+    
 }
