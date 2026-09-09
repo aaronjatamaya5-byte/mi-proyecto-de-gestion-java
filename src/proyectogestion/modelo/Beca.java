@@ -10,7 +10,7 @@ import java.util.ArrayList;
  *
  * @author aaron
 */
-public class Beca {
+public abstract class Beca {
     
     private int codigo;
     private String nombreBeca;
@@ -83,12 +83,8 @@ public class Beca {
         this.listaPostulaciones.add(postulacion);
     }
             
-    public double calcularPuntaje(Estudiante postulante)
-    {
-        return 0.0;
-    }
-
-
+    public abstract double calcularPuntaje(Estudiante postulante); //Definimos como abstracta esta función porque se definirá en sus respectivas sub-clases
+    
     public ArrayList<Postulacion> obtenerPostulantesAptos() //Filtra a los postulantes que superan el ptje minimo
     {
         ArrayList<Postulacion> aptos = new ArrayList<>();
