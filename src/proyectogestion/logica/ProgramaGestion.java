@@ -47,7 +47,7 @@ public class ProgramaGestion {
     }
     
     // Creamos la postulacion
-    public boolean postularEstudiante(String rut, int codigoBeca, int idPostulacion) {
+    public boolean postularEstudiante(String rut, int codigoBeca) {
         Estudiante estudiante = buscarEstudiante(rut);
         Beca beca = buscarBeca(codigoBeca);
 
@@ -55,8 +55,8 @@ public class ProgramaGestion {
             return false;
         }
 
-        Postulacion nuevaPostulacion = new Postulacion(idPostulacion, "Pendiente", estudiante);
-        contadorIdPostulacion++;
+        Postulacion nuevaPostulacion = new Postulacion(this.contadorIdPostulacion, "Pendiente", estudiante);
+        this.contadorIdPostulacion++;
         beca.agregarPostulacion(nuevaPostulacion);
         return true;
     }

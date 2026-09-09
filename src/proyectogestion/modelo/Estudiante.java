@@ -64,7 +64,7 @@ public class Estudiante {
         return rut;
     }
     
-        public void setSexo(String sexo)
+    public void setSexo(String sexo)
     {
         this.sexo=sexo;
     }
@@ -74,7 +74,7 @@ public class Estudiante {
         return sexo;
     }
     
-        public void setDireccionHogar(String direccionHogar)
+    public void setDireccionHogar(String direccionHogar)
     {
         this.direccionHogar=direccionHogar;
     }
@@ -84,7 +84,7 @@ public class Estudiante {
         return direccionHogar;
     }
     
-        public void setDireccionEstadia(String direccionEstadia)
+    public void setDireccionEstadia(String direccionEstadia)
     {
         this.direccionEstadia=direccionEstadia;
     }
