@@ -5,6 +5,9 @@
 package proyectogestion.main;
 import proyectogestion.logica.ProgramaGestion;
 import proyectogestion.vista.Interfaz;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 /**
  *
@@ -22,7 +25,25 @@ public class ProyectoGestion {
         Interfaz ventana = new Interfaz(programa);
 
         ventana.setVisible(true);
-    
+        
+        //TEST DE BASE DE DATOS
+        String url = "jdbc:sqlite:becas_test.db";
+        
+        try (Connection conn = DriverManager.getConnection(url)) {
+            if (conn != null) {
+                System.out.println("¡Conexión exitosa a SQLite!");
+                System.out.println("Base de datos creada/conectada correctamente.");
+            }
+        } catch (SQLException e) {
+        System.err.println("Error al conectar con SQLite: " + e.getMessage());
+        }
+        
     }
     
+    
+    
+    
+
+
+ 
 }
