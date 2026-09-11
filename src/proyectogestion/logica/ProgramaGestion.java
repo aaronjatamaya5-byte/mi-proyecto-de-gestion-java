@@ -8,6 +8,8 @@ import proyectogestion.modelo.Beca;
 import proyectogestion.modelo.Postulacion;
 import java.util.HashMap;
 import java.util.ArrayList;
+import proyectogestion.excepciones.EstudianteNoEncontradoException;
+import proyectogestion.excepciones.BecaNoEncontradaException;
 
 /**
  *
@@ -37,6 +39,7 @@ public class ProgramaGestion {
         return mapaBecas.get(codigo);
     }
     
+    
     //Buscar estudiante por rut
     public Estudiante buscarEstudiante(String rut) {
         for (Estudiante est :listaEstudiantes) {
@@ -47,13 +50,20 @@ public class ProgramaGestion {
     }
     
     // Creamos la postulacion
-    public boolean postularEstudiante(String rut, int codigoBeca) {
+    public boolean postularEstudiante(String rut, int codigoBeca) throws EstudianteNoEncontradoException,BecaNoEncontradaException{
         Estudiante estudiante = buscarEstudiante(rut);
         Beca beca = buscarBeca(codigoBeca);
 
-        if (estudiante == null || beca == null) {
-            return false;
+        if (estudiante == null)
+        {
+            throw new EstudianteNoEncontradoException("Error: No existe un estudiante con el rut" + rut);
         }
+        
+        if(beca==null)
+        {
+            throw new BecaNoEncontradaException("Error: No existe una beca con el codigo" + codigoBeca);
+        }
+
 
         Postulacion nuevaPostulacion = new Postulacion(this.contadorIdPostulacion, "Pendiente", estudiante);
         this.contadorIdPostulacion++;
@@ -83,4 +93,132 @@ public class ProgramaGestion {
         return becasPostuladas;
     }
     
+    //Eliminacion de estudiante
+    
+    public boolean eliminarEstudiante(String rut)
+    {
+        Estudiante estudiante=buscarEstudiante(rut);
+        if(estudiante!=null)
+        {
+            listaEstudiantes.remove(estudiante);
+            System.out.println("Estudiante con Rut" + rut + "eliminado correctamente.");
+            return true;
+        }
+        System.out.println("No se encontro al estudiante que desea eliminar.");
+        return false;
+    }
+    
+    //Eliminacion de beca
+    
+    public boolean eliminarBeca(int codigo)
+    {
+        if(mapaBecas.containsKey(codigo))
+        {
+            mapaBecas.remove(codigo);
+            System.out.println("Beca con codigo " + codigo + "eliminada");
+            return true;
+        }
+        System.out.println("No se encontro una beca con ese codigo");
+        return false;
+    }
+    
+    
+    //Modificacion de estudiante
+    
+    public boolean modificarEstudiante(String rut,String nuevaDireccion, int nuevosIngresos,double nuevoPromedio)
+    {
+        Estudiante estudiante=buscarEstudiante(rut);
+        if(estudiante!=null)
+        {
+            estudiante.actualizarDatos(nuevaDireccion, nuevosIngresos, nuevoPromedio);
+            System.out.println("Datos del estudiante actualizados correctamente.");
+            return true;
+        }
+        System.out.println("No se encontro al estudiante con ese rut");
+        return false;
+    }
+    
+    //Sobrecarga de modificacion estudiante para cambiar todos los datos
+    
+    public boolean modificarEstudiante(String rut,int nuevaEdad,String nuevaDireccionHogar,String nuevaDireccionEstadia, double nuevoRSH,int nuevosIngresos,double nuevoPromedio,int nuevoNivelDeporte)
+    {
+        Estudiante estudiante=buscarEstudiante(rut);
+        if(estudiante!=null)
+        {
+            estudiante.actualizarDatos(nuevaEdad,nuevaDireccionHogar,nuevaDireccionEstadia,nuevoRSH,nuevosIngresos,nuevoPromedio,nuevoNivelDeporte);
+            System.out.println("Datos del estudiante actualizados correctamente.");
+            return true;
+        }
+        System.out.println("No se encontro al estudiante con ese rut");
+        return false;
+    }
+    
+    
+    //Modificacion de beca
+    
+    public boolean modificarBeca(int codigo, int nuevosCupos, int nuevoPuntajeMinimo)
+    {
+        Beca beca=buscarBeca(codigo);
+        if(beca!=null)
+        {
+            beca.setCupos(nuevosCupos);
+            beca.setPuntajeMinimo(nuevoPuntajeMinimo);
+            System.out.println("Los datos de la beca buscada han sido actualizados");
+            return true;
+        }
+        System.out.println("No se encontro la beca con ese codigo");
+        return false;
+    }
+    
+    //Metodo para asignar becas a los estudiantes
+    
+    public void asignarBecas()
+    {
+        for(Beca beca: mapaBecas.values())
+        {
+            int cuposDisponibles=beca.getCupos();
+            int puntajeRequerido=beca.getPuntajeMinimo();
+            
+            System.out.println("Beca:" + beca.getNombreBeca() + "| Cupos iniciales " + cuposDisponibles);
+            
+            ArrayList<Postulacion> listaPostulaciones=beca.getListaPostulaciones();
+            
+            for(Postulacion p : listaPostulaciones)
+            {
+                if(p.getEstadoPostulacion().equalsIgnoreCase("Pendiente"))
+                {
+                    Estudiante alumno = p.getPostulante();
+                    
+                    double puntajeObtenido=beca.calcularPuntaje(alumno);
+                    
+                    if(puntajeObtenido>=puntajeRequerido)
+                    {
+                        if(cuposDisponibles>0)
+                        {
+                            p.setEstadoPostulacion("Aceptado");
+                            cuposDisponibles--;
+                            System.out.println("Beca asignada a:" + alumno.getNombre() + " Puntaje:" + puntajeObtenido);
+                            
+                        }
+                        else
+                        {
+                            p.setEstadoPostulacion("Rechazado por falta de cupos");
+                            System.out.println("Beca rechazada por falta de cupos");
+                        }
+                    }
+                    else
+                    {
+                        p.setEstadoPostulacion("Rechazado por puntaje insuficiente");
+                        System.out.println("Beca rechazada por bajo puntaje");
+                    }
+                }
+            }
+            
+            
+            beca.setCupos(cuposDisponibles);
+        }
+              
+    }
+    
+
 }

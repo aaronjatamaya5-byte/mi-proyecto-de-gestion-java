@@ -133,4 +133,24 @@ public class Estudiante {
     {
         return promedioNotas;
     }
+    //Metodo para actualizar datos en programaGestion
+    public void actualizarDatos(String nuevaDireccion, int nuevosIngresos,double nuevoPromedio)
+    {
+        this.direccionEstadia=nuevaDireccion;
+        this.ingresosFamiliares=nuevosIngresos;
+        this.promedioNotas=nuevoPromedio;
+    }
+    //Metodo sobrecargado para actualizar datos en programaGestion
+    public void actualizarDatos(int nuevaEdad,String nuevaDireccionHogar,String nuevaDireccionEstadia, double nuevoRSH,int nuevosIngresos,double nuevoPromedio,int nuevoNivelDeporte)
+    {
+        this.edad=nuevaEdad;
+        this.direccionHogar=nuevaDireccionHogar;
+        this.direccionEstadia=nuevaDireccionEstadia;
+        this.porcentajeRSH=nuevoRSH;
+        this.ingresosFamiliares=nuevosIngresos;
+        this.promedioNotas=nuevoPromedio;
+        this.nivelDeportividad=nuevoNivelDeporte;
+    }
+    
+    
 }
