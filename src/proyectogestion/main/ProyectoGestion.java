@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package proyectogestion.main;
+import proyectogestion.logica.ProgramaGestion;
+import proyectogestion.vista.Interfaz;
 
 /**
  *
@@ -14,7 +16,13 @@ public class ProyectoGestion {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        ProgramaGestion programa = new ProgramaGestion();
+
+        Interfaz ventana = new Interfaz(programa);
+
+        ventana.setVisible(true);
+    
     }
     
 }
