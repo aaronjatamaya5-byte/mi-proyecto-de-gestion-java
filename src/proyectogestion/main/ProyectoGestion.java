@@ -27,7 +27,7 @@ public class ProyectoGestion {
         ventana.setVisible(true);
         
         //TEST DE BASE DE DATOS
-        String url = "jdbc:sqlite:becas_test.db";
+        /*String url = "jdbc:sqlite:becas_test.db";
         
         try (Connection conn = DriverManager.getConnection(url)) {
             if (conn != null) {
@@ -36,14 +36,7 @@ public class ProyectoGestion {
             }
         } catch (SQLException e) {
         System.err.println("Error al conectar con SQLite: " + e.getMessage());
-        }
+        }*/
         
     }
-    
-    
-    
-    
-
-
- 
 }
