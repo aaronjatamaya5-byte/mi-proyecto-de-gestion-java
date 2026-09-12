@@ -26,6 +26,23 @@ public class ProgramaGestion {
         listaEstudiantes = new ArrayList<>();
     }
     
+    public ArrayList<Estudiante> getListaEstudiantes() {
+        return listaEstudiantes;
+    }
+    
+    public HashMap<Integer, Beca> getMapaBecas() {
+        return mapaBecas;
+    }
+    
+    public void setContadorIdPostulacion(int contador) {
+        this.contadorIdPostulacion = contador;
+    }
+
+    // Para saber en qué número quedó el contador
+    public int getContadorIdPostulacion() {
+        return contadorIdPostulacion;
+    }
+    
     public void registrarEstudiante(Estudiante estudiante) {
         listaEstudiantes.add(estudiante);
     }
