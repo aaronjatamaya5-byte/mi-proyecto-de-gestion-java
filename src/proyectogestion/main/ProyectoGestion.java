@@ -3,16 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package proyectogestion.main;
+
+import java.util.Scanner;
 import proyectogestion.logica.ProgramaGestion;
 import proyectogestion.vista.Interfaz;
-import proyectogestion.modelo.Estudiante;
-import proyectogestion.modelo.BecaAcademica;
-import proyectogestion.modelo.BecaDeportiva;
-import proyectogestion.modelo.BecaSocioeconomica;
-import java.util.Scanner;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import proyectogestion.persistencia.ServicioPersistencia;
 
 /**
  *
@@ -27,7 +22,15 @@ public class ProyectoGestion {
         
         ProgramaGestion programa = new ProgramaGestion();
         
-        cargarDatosPrueba(programa);
+        //carga inicial
+        System.out.println("Iniciando sistema de base de datos...");
+        ServicioPersistencia.cargarDatos(programa);
+
+        //Guardado automatico
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            System.out.println("\nCerrando sistema... Sincronizando datos con SQLite.");
+            ServicioPersistencia.guardarDatos(programa);
+        }));
 
         Scanner entrada = new Scanner(System.in);
         
@@ -68,28 +71,4 @@ public class ProyectoGestion {
         }*/
         
     }
-    
-    private static void cargarDatosPrueba(ProgramaGestion programa)
-    {
-        System.out.println("-Datos de prueba iniciales-");
-        
-        Estudiante est1 = new Estudiante("Juan Soto", 21, "20111222-3", "Masculino", "Avenida Central 123", "Avenida Central 123", 40.0, 8, 350000, 6.5);
-        Estudiante est2 = new Estudiante("María Gómez", 23, "19222333-4", "Femenino", "Calle Sur 456", "Calle Sur 456", 60.0, 3, 550000, 5.8);
-        Estudiante est3 = new Estudiante("Carlos Díaz", 20, "21333444-5", "Masculino", "Pasaje Norte 789", "Pasaje Norte 789", 30.0, 10, 250000, 6.1);
-                
-        programa.registrarEstudiante(est1);
-        programa.registrarEstudiante(est2);
-        programa.registrarEstudiante(est3);
-        
-        BecaAcademica becaAcade = new BecaAcademica(1,"Beca Excelencia Academica", 85,2);
-        BecaDeportiva becaDepor = new BecaDeportiva(2,"Beca Deportista Destacado",400,1);
-        BecaSocioeconomica becaSocio = new BecaSocioeconomica(3,"Beca Apoyo Estudiantil",70000,5);
-        
-        programa.registrarBeca(becaAcade);
-        programa.registrarBeca(becaDepor);
-        programa.registrarBeca(becaSocio);
-        
-        System.out.println("Se cargaron 3 becas y estudiantes");
-    }
 }
-
