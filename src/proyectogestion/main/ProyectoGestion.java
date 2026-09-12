@@ -9,8 +9,7 @@ import proyectogestion.modelo.Estudiante;
 import proyectogestion.modelo.BecaAcademica;
 import proyectogestion.modelo.BecaDeportiva;
 import proyectogestion.modelo.BecaSocioeconomica;
-
-
+import java.util.Scanner;
 
 /**
  *
@@ -27,9 +26,32 @@ public class ProyectoGestion {
         
         cargarDatosPrueba(programa);
 
-        Interfaz ventana = new Interfaz(programa);
-
-        ventana.setVisible(true);
+        Scanner entrada = new Scanner(System.in);
+        
+        System.out.println("--- BIENVENIDO AL SISTEMA DE GESTION DE BECAS ---");
+        System.out.println("Seleccione el modo de ejecución:");
+        System.out.println("1. Modo Consola");
+        System.out.println("2. Modo Ventana (Interfaz Gráfica)");
+        System.out.print("Ingrese su opción (1 o 2): ");
+        
+        String opcion= entrada.nextLine();
+        
+        if(opcion.equals("1"))
+        {
+            System.out.println("Iniciando el modo consola..");
+            
+        }
+        else if(opcion.equals("2"))
+        {
+            System.out.println("Iniciando el modo ventana..");
+            Interfaz ventana = new Interfaz(programa);
+            ventana.setVisible(true);
+        }
+        else
+        {
+            System.out.println("Opcion no valida, Ejecute nuevamente");
+        }
+        
     }
     
     private static void cargarDatosPrueba(ProgramaGestion programa)
