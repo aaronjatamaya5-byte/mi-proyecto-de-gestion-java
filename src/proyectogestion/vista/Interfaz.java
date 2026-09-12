@@ -4,7 +4,10 @@
  */
 package proyectogestion.vista;
 import proyectogestion.logica.ProgramaGestion;
-
+import proyectogestion.modelo.Estudiante;
+import javax.swing.JOptionPane;
+import proyectogestion.excepciones.EstudianteNoEncontradoException;
+import proyectogestion.excepciones.BecaNoEncontradaException;
 
 /**
  *
@@ -32,12 +35,9 @@ public class Interfaz extends javax.swing.JFrame {
 
         tabbedPanePrincipal = new javax.swing.JTabbedPane();
         panelRegistrarEstudiante = new javax.swing.JPanel();
-        panelPostularBeca = new javax.swing.JPanel();
-        panelConsultarBecas = new javax.swing.JPanel();
-        panelBuscarEstudiante = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         btnRegistrar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -56,62 +56,16 @@ public class Interfaz extends javax.swing.JFrame {
         txtNivelDeportividad = new javax.swing.JTextField();
         txtIngresosFamiliares = new javax.swing.JTextField();
         txtPromedioNotas = new javax.swing.JTextField();
+        panelPostularBeca = new javax.swing.JPanel();
+        txtRutPostulacion = new javax.swing.JTextField();
+        txtCodigoBeca = new javax.swing.JTextField();
+        btnPostular = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        panelConsultarBecas = new javax.swing.JPanel();
+        panelBuscarEstudiante = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        javax.swing.GroupLayout panelRegistrarEstudianteLayout = new javax.swing.GroupLayout(panelRegistrarEstudiante);
-        panelRegistrarEstudiante.setLayout(panelRegistrarEstudianteLayout);
-        panelRegistrarEstudianteLayout.setHorizontalGroup(
-            panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 267, Short.MAX_VALUE)
-        );
-        panelRegistrarEstudianteLayout.setVerticalGroup(
-            panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 424, Short.MAX_VALUE)
-        );
-
-        tabbedPanePrincipal.addTab("tab1", panelRegistrarEstudiante);
-
-        javax.swing.GroupLayout panelPostularBecaLayout = new javax.swing.GroupLayout(panelPostularBeca);
-        panelPostularBeca.setLayout(panelPostularBecaLayout);
-        panelPostularBecaLayout.setHorizontalGroup(
-            panelPostularBecaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 267, Short.MAX_VALUE)
-        );
-        panelPostularBecaLayout.setVerticalGroup(
-            panelPostularBecaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 424, Short.MAX_VALUE)
-        );
-
-        tabbedPanePrincipal.addTab("tab2", panelPostularBeca);
-
-        javax.swing.GroupLayout panelConsultarBecasLayout = new javax.swing.GroupLayout(panelConsultarBecas);
-        panelConsultarBecas.setLayout(panelConsultarBecasLayout);
-        panelConsultarBecasLayout.setHorizontalGroup(
-            panelConsultarBecasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 267, Short.MAX_VALUE)
-        );
-        panelConsultarBecasLayout.setVerticalGroup(
-            panelConsultarBecasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 424, Short.MAX_VALUE)
-        );
-
-        tabbedPanePrincipal.addTab("tab3", panelConsultarBecas);
-
-        javax.swing.GroupLayout panelBuscarEstudianteLayout = new javax.swing.GroupLayout(panelBuscarEstudiante);
-        panelBuscarEstudiante.setLayout(panelBuscarEstudianteLayout);
-        panelBuscarEstudianteLayout.setHorizontalGroup(
-            panelBuscarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 267, Short.MAX_VALUE)
-        );
-        panelBuscarEstudianteLayout.setVerticalGroup(
-            panelBuscarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 424, Short.MAX_VALUE)
-        );
-
-        tabbedPanePrincipal.addTab("tab2", panelBuscarEstudiante);
-
-        jLabel1.setText("Nombre: ");
 
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,6 +79,8 @@ public class Interfaz extends javax.swing.JFrame {
                 btnRegistrarActionPerformed(evt);
             }
         });
+
+        jLabel1.setText("Nombre: ");
 
         jLabel2.setText("Edad:");
 
@@ -162,104 +118,218 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
 
+        txtDireccionHogar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDireccionHogarActionPerformed(evt);
+            }
+        });
+
+        txtDireccionEstadia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDireccionEstadiaActionPerformed(evt);
+            }
+        });
+
         txtIngresosFamiliares.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIngresosFamiliaresActionPerformed(evt);
             }
         });
 
+        txtPromedioNotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPromedioNotasActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelRegistrarEstudianteLayout = new javax.swing.GroupLayout(panelRegistrarEstudiante);
+        panelRegistrarEstudiante.setLayout(panelRegistrarEstudianteLayout);
+        panelRegistrarEstudianteLayout.setHorizontalGroup(
+            panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelRegistrarEstudianteLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelRegistrarEstudianteLayout.createSequentialGroup()
+                        .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel1))
+                        .addGap(41, 41, 41)
+                        .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtRut, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
+                                .addComponent(txtDireccionHogar))))
+                    .addGroup(panelRegistrarEstudianteLayout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(btnRegistrar))
+                    .addGroup(panelRegistrarEstudianteLayout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addGap(40, 40, 40)
+                        .addComponent(txtPromedioNotas, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addGroup(panelRegistrarEstudianteLayout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(40, 40, 40)
+                        .addComponent(txtPorcentajeRSH, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelRegistrarEstudianteLayout.createSequentialGroup()
+                            .addComponent(jLabel6)
+                            .addGap(30, 30, 30)
+                            .addComponent(txtDireccionEstadia))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelRegistrarEstudianteLayout.createSequentialGroup()
+                            .addComponent(jLabel8)
+                            .addGap(24, 24, 24)
+                            .addComponent(txtNivelDeportividad))
+                        .addGroup(panelRegistrarEstudianteLayout.createSequentialGroup()
+                            .addComponent(jLabel9)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtIngresosFamiliares, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelRegistrarEstudianteLayout.setVerticalGroup(
+            panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelRegistrarEstudianteLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtRut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(txtDireccionHogar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36)
+                .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(txtDireccionEstadia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41)
+                .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(txtPromedioNotas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(txtNivelDeportividad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(43, 43, 43)
+                .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPorcentajeRSH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtIngresosFamiliares, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addComponent(btnRegistrar)
+                .addGap(23, 23, 23))
+        );
+
+        tabbedPanePrincipal.addTab("tab1", panelRegistrarEstudiante);
+
+        txtCodigoBeca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCodigoBecaActionPerformed(evt);
+            }
+        });
+
+        btnPostular.setText("Postular");
+        btnPostular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPostularActionPerformed(evt);
+            }
+        });
+
+        jLabel11.setText("RUT estudiante:");
+
+        jLabel12.setText("Código beca:");
+
+        javax.swing.GroupLayout panelPostularBecaLayout = new javax.swing.GroupLayout(panelPostularBeca);
+        panelPostularBeca.setLayout(panelPostularBecaLayout);
+        panelPostularBecaLayout.setHorizontalGroup(
+            panelPostularBecaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPostularBecaLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(panelPostularBecaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel12))
+                .addGap(27, 27, 27)
+                .addGroup(panelPostularBecaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtRutPostulacion)
+                    .addComponent(txtCodigoBeca)
+                    .addComponent(btnPostular, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelPostularBecaLayout.setVerticalGroup(
+            panelPostularBecaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPostularBecaLayout.createSequentialGroup()
+                .addGap(112, 112, 112)
+                .addGroup(panelPostularBecaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addComponent(txtRutPostulacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(panelPostularBecaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(txtCodigoBeca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addComponent(btnPostular)
+                .addContainerGap(399, Short.MAX_VALUE))
+        );
+
+        tabbedPanePrincipal.addTab("tab2", panelPostularBeca);
+
+        javax.swing.GroupLayout panelConsultarBecasLayout = new javax.swing.GroupLayout(panelConsultarBecas);
+        panelConsultarBecas.setLayout(panelConsultarBecasLayout);
+        panelConsultarBecasLayout.setHorizontalGroup(
+            panelConsultarBecasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        panelConsultarBecasLayout.setVerticalGroup(
+            panelConsultarBecasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        tabbedPanePrincipal.addTab("tab3", panelConsultarBecas);
+
+        javax.swing.GroupLayout panelBuscarEstudianteLayout = new javax.swing.GroupLayout(panelBuscarEstudiante);
+        panelBuscarEstudiante.setLayout(panelBuscarEstudianteLayout);
+        panelBuscarEstudianteLayout.setHorizontalGroup(
+            panelBuscarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        panelBuscarEstudianteLayout.setVerticalGroup(
+            panelBuscarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        tabbedPanePrincipal.addTab("tab2", panelBuscarEstudiante);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel9)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING))
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel10))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtPromedioNotas, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtRut, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-                                .addComponent(txtNombre)
-                                .addComponent(txtEdad)
-                                .addComponent(txtSexo)
-                                .addComponent(txtDireccionHogar)
-                                .addComponent(txtDireccionEstadia)
-                                .addComponent(txtPorcentajeRSH, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(txtNivelDeportividad, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(txtIngresosFamiliares, javax.swing.GroupLayout.Alignment.TRAILING)))
-                        .addGap(75, 75, 75))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(74, 74, 74)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnRegistrar)
-                            .addComponent(tabbedPanePrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(tabbedPanePrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 352, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtRut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(txtDireccionHogar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtDireccionEstadia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(txtPorcentajeRSH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(txtNivelDeportividad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(txtIngresosFamiliares, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(txtPromedioNotas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
-                .addComponent(btnRegistrar)
-                .addGap(1062, 1062, 1062)
-                .addComponent(tabbedPanePrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(tabbedPanePrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 1547, Short.MAX_VALUE))
         );
 
         pack();
@@ -270,7 +340,50 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNombreActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
-        // TODO add your handling code here:
+        try {
+        String nombre = txtNombre.getText();
+        int edad = Integer.parseInt(txtEdad.getText());
+        String rut = txtRut.getText().trim();
+        String sexo = txtSexo.getText();
+        String direccionHogar = txtDireccionHogar.getText();
+        String direccionEstadia = txtDireccionEstadia.getText();
+
+        double porcentajeRSH = Double.parseDouble(txtPorcentajeRSH.getText());
+
+        int nivelDeportividad = Integer.parseInt(txtNivelDeportividad.getText());
+
+        int ingresosFamiliares = Integer.parseInt(txtIngresosFamiliares.getText());
+
+        double promedioNotas = Double.parseDouble(txtPromedioNotas.getText());
+
+        Estudiante estudiante = new Estudiante(
+            nombre,
+            edad,
+            rut,
+            sexo,
+            direccionHogar,
+            direccionEstadia,
+            porcentajeRSH,
+            nivelDeportividad,
+            ingresosFamiliares,
+            promedioNotas
+        );
+
+        programaGestion.registrarEstudiante(estudiante);
+
+        JOptionPane.showMessageDialog( this, "Estudiante registrado correctamente." );
+        limpiarCamposRegistro();
+        
+        } catch (NumberFormatException e) {
+
+        JOptionPane.showMessageDialog(
+            this,
+            "Revisa los datos numéricos ingresados.",
+            "Error de datos",
+            JOptionPane.ERROR_MESSAGE
+        );
+        }
+    
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void txtRutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRutActionPerformed
@@ -289,15 +402,99 @@ public class Interfaz extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEdadActionPerformed
 
+    private void txtCodigoBecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoBecaActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_txtCodigoBecaActionPerformed
+
+    private void btnPostularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPostularActionPerformed
+        // TODO add your handling code here:
+        try {
+            String rut = txtRutPostulacion.getText().trim();
+            int codigoBeca = Integer.parseInt(txtCodigoBeca.getText());
+
+            boolean resultado = programaGestion.postularEstudiante(rut, codigoBeca);
+
+            if (resultado) {
+                JOptionPane.showMessageDialog(
+                    this,
+                    "Postulación realizada correctamente.");
+                txtRutPostulacion.setText("");
+                txtCodigoBeca.setText("");
+
+            } else {
+                JOptionPane.showMessageDialog(
+                    this,
+                    "No se encontró la beca indicada.",
+                    "Postulación no realizada",
+                    JOptionPane.WARNING_MESSAGE);
+            }
+
+        }catch (NumberFormatException e) {
+
+            JOptionPane.showMessageDialog(
+                this,
+                e.getMessage(),
+                "Estudiante no encontrado",
+                JOptionPane.WARNING_MESSAGE);
+                    
+                
+
+        } catch (EstudianteNoEncontradoException e) {
+
+            JOptionPane.showMessageDialog(
+                this,
+                "No se encontró un estudiante con ese RUT.",
+                "Estudiante no encontrado",
+                JOptionPane.WARNING_MESSAGE);
+        }
+        catch (BecaNoEncontradaException e) {
+
+            JOptionPane.showMessageDialog(
+                this,
+                e.getMessage(),
+                "Beca no encontrada",
+                JOptionPane.WARNING_MESSAGE
+            );
+        }
+    }//GEN-LAST:event_btnPostularActionPerformed
+
+    private void txtDireccionHogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDireccionHogarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDireccionHogarActionPerformed
+
+    private void txtPromedioNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPromedioNotasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPromedioNotasActionPerformed
+
+    private void txtDireccionEstadiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDireccionEstadiaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDireccionEstadiaActionPerformed
+
     /**
      * @param args the command line arguments
      */
+    private void limpiarCamposRegistro() {
+    txtNombre.setText("");
+    txtEdad.setText("");
+    txtRut.setText("");
+    txtSexo.setText("");
+    txtDireccionHogar.setText("");
+    txtDireccionEstadia.setText("");
+    txtPorcentajeRSH.setText("");
+    txtNivelDeportividad.setText("");
+    txtIngresosFamiliares.setText("");
+    txtPromedioNotas.setText("");
+}
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnPostular;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -311,6 +508,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JPanel panelPostularBeca;
     private javax.swing.JPanel panelRegistrarEstudiante;
     private javax.swing.JTabbedPane tabbedPanePrincipal;
+    private javax.swing.JTextField txtCodigoBeca;
     private javax.swing.JTextField txtDireccionEstadia;
     private javax.swing.JTextField txtDireccionHogar;
     private javax.swing.JTextField txtEdad;
@@ -320,6 +518,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JTextField txtPorcentajeRSH;
     private javax.swing.JTextField txtPromedioNotas;
     private javax.swing.JTextField txtRut;
+    private javax.swing.JTextField txtRutPostulacion;
     private javax.swing.JTextField txtSexo;
     // End of variables declaration//GEN-END:variables
 }
