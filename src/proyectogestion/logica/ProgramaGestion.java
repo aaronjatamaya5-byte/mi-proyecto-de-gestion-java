@@ -73,15 +73,15 @@ public class ProgramaGestion {
 
         if (estudiante == null)
         {
-            throw new EstudianteNoEncontradoException("Error: No existe un estudiante con el rut" + rut);
+            throw new EstudianteNoEncontradoException("Error: No existe un estudiante con el rut " + rut);
         }
         
         if(beca==null)
         {
-            throw new BecaNoEncontradaException("Error: No existe una beca con el codigo" + codigoBeca);
+            throw new BecaNoEncontradaException("Error: No existe una beca con el codigo " + codigoBeca);
         }
 
-
+        
         Postulacion nuevaPostulacion = new Postulacion(this.contadorIdPostulacion, "Pendiente", estudiante);
         this.contadorIdPostulacion++;
         beca.agregarPostulacion(nuevaPostulacion);

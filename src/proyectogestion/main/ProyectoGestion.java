@@ -8,6 +8,7 @@ import java.util.Scanner;
 import proyectogestion.logica.ProgramaGestion;
 import proyectogestion.vista.Interfaz;
 import proyectogestion.persistencia.ServicioPersistencia;
+import proyectogestion.vista.Menu;
 
 /**
  *
@@ -45,7 +46,8 @@ public class ProyectoGestion {
         if(opcion.equals("1"))
         {
             System.out.println("Iniciando el modo consola..");
-            
+            Menu menu= new Menu();
+            menu.iniciar(programa);
         }
         else if(opcion.equals("2"))
         {
