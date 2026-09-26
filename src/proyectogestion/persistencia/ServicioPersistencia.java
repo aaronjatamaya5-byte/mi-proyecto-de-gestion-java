@@ -28,6 +28,7 @@ public class ServicioPersistencia {
 
     
     
+    //Para cuando abrimos el sistema
     public static void cargarDatos(ProgramaGestion gestor) {
         GestorBD.inicializarSchema();
 
@@ -49,6 +50,7 @@ public class ServicioPersistencia {
                             rs.getInt("ingresosFamiliares"),
                             rs.getDouble("promedioNotas")
                     );
+                    //Lo insertamos al ArrayList
                     gestor.registrarEstudiante(est);
                 }
             }
@@ -87,6 +89,7 @@ public class ServicioPersistencia {
                     Estudiante alumno = gestor.buscarEstudiante(rut);
                     Beca beca = gestor.buscarBeca(codBeca);
 
+                    //Enlazamos la postulación con su beca
                     if (alumno != null && beca != null) {
                         Postulacion p = new Postulacion(id, estado, alumno);
                         beca.agregarPostulacion(p);
@@ -113,7 +116,17 @@ public class ServicioPersistencia {
                 + "VALUES (?, ?, ?, ?);";
 
         try (Connection con = GestorBD.conectar()) {
+            //Apagamos el autoguardado
             con.setAutoCommit(false);
+
+            
+            //LIMPIAMOS LA BASE DE DATOS ANTES DE VOLVER A AGREGAR PARA SOLUCIONAR EL PROBLEMA CON LA ELIMINACION
+            try (Statement stmtDelete = con.createStatement()) {
+                stmtDelete.execute("DELETE FROM postulacion;");
+                stmtDelete.execute("DELETE FROM beca;");
+                stmtDelete.execute("DELETE FROM estudiante;");
+            }
+            
 
             // Guardar estudiantes
             try (PreparedStatement psEst = con.prepareStatement(sqlEst)) {
@@ -157,6 +170,7 @@ public class ServicioPersistencia {
                 psPost.executeBatch();
             }
 
+            //Escribimos en la bd
             con.commit();
             System.out.println("Base de datos actualizada con éxito.");
 

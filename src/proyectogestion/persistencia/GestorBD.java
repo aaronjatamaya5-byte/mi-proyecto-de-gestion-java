@@ -51,6 +51,8 @@ public class GestorBD {
                 + "FOREIGN KEY (rutEstudiante) REFERENCES estudiante(rut), "
                 + "FOREIGN KEY (codigoBeca) REFERENCES beca(codigo));";
 
+        //Acá ocupamos un try con recursos, a lo que tenemos en los paréntesis se le aplicara un .close al terminar de ejecutarse
+        // o interrumpirse el try.
         try (Connection con = conectar(); Statement stmt = con.createStatement()) {
             stmt.execute(sqlEstudiante);
             stmt.execute(sqlBeca);
