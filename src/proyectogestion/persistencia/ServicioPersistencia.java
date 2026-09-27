@@ -28,6 +28,17 @@ public class ServicioPersistencia {
 
     
     
+    public static void cargarDatosPrueba(ProgramaGestion programa) {
+        System.out.println("Base de datos vacía. Inyectando datos de prueba por defecto en el código...");
+        
+        programa.registrarEstudiante(new Estudiante("Juan Perez", 20, "111-1", "M", "Calle A", "Residencia B", 40.0, 8, 300000, 6.5));
+        programa.registrarEstudiante(new Estudiante("Maria Lopez", 22, "222-2", "F", "Calle C", "Pasaje D", 60.0, 5, 450000, 5.8));
+        programa.registrarEstudiante(new Estudiante("Carlos Gomez", 19, "333-3", "M", "Avenida E", "Avenida E", 80.0, 2, 800000, 4.5));
+     
+        programa.registrarBeca(new BecaAcademica(101, "Beca Excelencia Academica", 80, 2));
+        programa.registrarBeca(new BecaDeportiva(102, "Beca Deportistas", 70, 1));
+    }
+    
     //Para cuando abrimos el sistema
     public static void cargarDatos(ProgramaGestion gestor) {
         GestorBD.inicializarSchema();
@@ -97,6 +108,10 @@ public class ServicioPersistencia {
                 }
             }
             System.out.println("Datos cargados correctamente desde SQLite a memoria.");
+            
+            if (gestor.getListaEstudiantes().isEmpty() && gestor.getMapaBecas().isEmpty()) {
+                cargarDatosPrueba(gestor);
+            }
 
         } catch (SQLException e) {
             System.err.println("Error al cargar datos desde SQLite: " + e.getMessage());
