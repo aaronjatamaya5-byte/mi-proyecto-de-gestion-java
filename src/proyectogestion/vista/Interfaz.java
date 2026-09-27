@@ -435,7 +435,7 @@ public class Interfaz extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(
                 this,
                 e.getMessage(),
-                "Estudiante numérico",
+                "Error numérico",
                 JOptionPane.WARNING_MESSAGE);
                     
                 
