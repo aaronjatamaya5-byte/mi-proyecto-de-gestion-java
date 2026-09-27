@@ -21,7 +21,7 @@ public class Menu {
         boolean salir=false;
         while(!salir)
         {
-            System.out.println("\n=== Menu principal - Gestion de becas ===\n");
+            System.out.println("\n=== Menu principal - Programa de Gestion de Becas ===\n");
             System.out.println("1. Menu gestion de estudiantes");
             System.out.println("2. Menu gestion de becas");
             System.out.println("3. Menu operaciones de negocio");

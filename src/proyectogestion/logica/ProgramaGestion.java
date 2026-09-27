@@ -119,7 +119,7 @@ public class ProgramaGestion {
         if(estudiante!=null)
         {
             listaEstudiantes.remove(estudiante);
-            System.out.println("Estudiante con Rut" + rut + "eliminado correctamente.");
+            System.out.println("Estudiante con Rut " + rut + " eliminado correctamente.");
             return true;
         }
         System.out.println("No se encontro al estudiante que desea eliminar.");
@@ -133,7 +133,7 @@ public class ProgramaGestion {
         if(mapaBecas.containsKey(codigo))
         {
             mapaBecas.remove(codigo);
-            System.out.println("Beca con codigo " + codigo + "eliminada");
+            System.out.println("Beca con codigo " + codigo + " eliminada");
             return true;
         }
         System.out.println("No se encontro una beca con ese codigo");
