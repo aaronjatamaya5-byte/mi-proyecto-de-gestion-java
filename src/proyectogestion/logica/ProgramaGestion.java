@@ -26,12 +26,13 @@ public class ProgramaGestion {
         listaEstudiantes = new ArrayList<>();
     }
     
+    //Devolvemos copia en las colecciones
     public ArrayList<Estudiante> getListaEstudiantes() {
-        return listaEstudiantes;
+        return new ArrayList<>(listaEstudiantes);
     }
     
     public HashMap<Integer, Beca> getMapaBecas() {
-        return mapaBecas;
+        return new HashMap<>(mapaBecas);
     }
     
     public void setContadorIdPostulacion(int contador) {

@@ -73,9 +73,11 @@ public abstract class Beca {
         this.listaPostulaciones=listaPostulaciones;
     }
     
+    
+    // Devolvemos una copia para no romper el encapsulamiento
     public ArrayList<Postulacion> getListaPostulaciones()
     {
-        return listaPostulaciones;
+        return new ArrayList(listaPostulaciones);
     }
     
     public void agregarPostulacion(Postulacion postulacion)
