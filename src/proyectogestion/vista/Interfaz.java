@@ -62,8 +62,15 @@ public class Interfaz extends javax.swing.JFrame {
         btnPostular = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        panelConsultarBecas = new javax.swing.JPanel();
         panelBuscarEstudiante = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        txtRutBuscar = new javax.swing.JTextField();
+        btnBuscarEstudiante = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtAreaEstudiante = new javax.swing.JTextArea();
+        jLabel14 = new javax.swing.JLabel();
+        panelConsultaEstudiante = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -233,12 +240,12 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtIngresosFamiliares, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
                 .addComponent(btnRegistrar)
                 .addGap(23, 23, 23))
         );
 
-        tabbedPanePrincipal.addTab("tab1", panelRegistrarEstudiante);
+        tabbedPanePrincipal.addTab("Registro Estudiante", panelRegistrarEstudiante);
 
         txtCodigoBeca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -286,50 +293,100 @@ public class Interfaz extends javax.swing.JFrame {
                     .addComponent(txtCodigoBeca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addComponent(btnPostular)
-                .addContainerGap(399, Short.MAX_VALUE))
+                .addContainerGap(412, Short.MAX_VALUE))
         );
 
-        tabbedPanePrincipal.addTab("tab2", panelPostularBeca);
+        tabbedPanePrincipal.addTab("Postulación", panelPostularBeca);
 
-        javax.swing.GroupLayout panelConsultarBecasLayout = new javax.swing.GroupLayout(panelConsultarBecas);
-        panelConsultarBecas.setLayout(panelConsultarBecasLayout);
-        panelConsultarBecasLayout.setHorizontalGroup(
-            panelConsultarBecasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        panelConsultarBecasLayout.setVerticalGroup(
-            panelConsultarBecasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+        jLabel13.setText("RUT del estudiante:");
 
-        tabbedPanePrincipal.addTab("tab3", panelConsultarBecas);
+        txtRutBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRutBuscarActionPerformed(evt);
+            }
+        });
+
+        btnBuscarEstudiante.setText("Buscar");
+        btnBuscarEstudiante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarEstudianteActionPerformed(evt);
+            }
+        });
+
+        txtAreaEstudiante.setEditable(false);
+        txtAreaEstudiante.setColumns(20);
+        txtAreaEstudiante.setRows(5);
+        jScrollPane1.setViewportView(txtAreaEstudiante);
+
+        jLabel14.setText("Datos del estudiante:");
 
         javax.swing.GroupLayout panelBuscarEstudianteLayout = new javax.swing.GroupLayout(panelBuscarEstudiante);
         panelBuscarEstudiante.setLayout(panelBuscarEstudianteLayout);
         panelBuscarEstudianteLayout.setHorizontalGroup(
             panelBuscarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(panelBuscarEstudianteLayout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addGroup(panelBuscarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelBuscarEstudianteLayout.createSequentialGroup()
+                        .addGroup(panelBuscarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel13))
+                        .addGap(40, 40, 40)
+                        .addComponent(txtRutBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(63, 63, 63)
+                        .addComponent(btnBuscarEstudiante)))
+                .addContainerGap(188, Short.MAX_VALUE))
         );
         panelBuscarEstudianteLayout.setVerticalGroup(
             panelBuscarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(panelBuscarEstudianteLayout.createSequentialGroup()
+                .addGap(126, 126, 126)
+                .addGroup(panelBuscarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtRutBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarEstudiante)
+                    .addComponent(jLabel13))
+                .addGap(32, 32, 32)
+                .addComponent(jLabel14)
+                .addGap(28, 28, 28)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(333, Short.MAX_VALUE))
         );
 
-        tabbedPanePrincipal.addTab("tab2", panelBuscarEstudiante);
+        tabbedPanePrincipal.addTab("Busqueda", panelBuscarEstudiante);
+
+        jLabel15.setText("jLabel15");
+
+        javax.swing.GroupLayout panelConsultaEstudianteLayout = new javax.swing.GroupLayout(panelConsultaEstudiante);
+        panelConsultaEstudiante.setLayout(panelConsultaEstudianteLayout);
+        panelConsultaEstudianteLayout.setHorizontalGroup(
+            panelConsultaEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelConsultaEstudianteLayout.createSequentialGroup()
+                .addGap(136, 136, 136)
+                .addComponent(jLabel15)
+                .addContainerGap(517, Short.MAX_VALUE))
+        );
+        panelConsultaEstudianteLayout.setVerticalGroup(
+            panelConsultaEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelConsultaEstudianteLayout.createSequentialGroup()
+                .addGap(86, 86, 86)
+                .addComponent(jLabel15)
+                .addContainerGap(547, Short.MAX_VALUE))
+        );
+
+        tabbedPanePrincipal.addTab("Consulta", panelConsultaEstudiante);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(tabbedPanePrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 352, Short.MAX_VALUE))
+            .addComponent(tabbedPanePrincipal)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(tabbedPanePrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1547, Short.MAX_VALUE))
+                .addComponent(tabbedPanePrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 685, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 1534, Short.MAX_VALUE))
         );
 
         pack();
@@ -471,6 +528,44 @@ public class Interfaz extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDireccionEstadiaActionPerformed
 
+    private void btnBuscarEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarEstudianteActionPerformed
+        // TODO add your handling code here:
+        String rut = txtRutBuscar.getText().trim();
+
+    Estudiante estudiante = programaGestion.buscarEstudiante(rut);
+
+    if (estudiante == null) {
+
+        JOptionPane.showMessageDialog(
+                this,
+                "No se encontró un estudiante con ese RUT.",
+                "Estudiante no encontrado",
+                JOptionPane.WARNING_MESSAGE
+        );
+
+        txtAreaEstudiante.setText("");
+
+    } else {
+
+        txtAreaEstudiante.setText(
+                "Nombre: " + estudiante.getNombre() + "\n"
+                + "Edad: " + estudiante.getEdad() + "\n"
+                + "RUT: " + estudiante.getRut() + "\n"
+                + "Sexo: " + estudiante.getSexo() + "\n"
+                + "Dirección hogar: " + estudiante.getDireccionHogar() + "\n"
+                + "Dirección estadía: " + estudiante.getDireccionEstadia() + "\n"
+                + "Porcentaje RSH: " + estudiante.getPorcentajeRSH() + "\n"
+                + "Nivel deportividad: " + estudiante.getNivelDeportividad() + "\n"
+                + "Ingresos familiares: " + estudiante.getIngresosFamiliares() + "\n"
+                + "Promedio notas: " + estudiante.getPromedioNotas()
+        );
+    }
+    }//GEN-LAST:event_btnBuscarEstudianteActionPerformed
+
+    private void txtRutBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRutBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRutBuscarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -489,12 +584,16 @@ public class Interfaz extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscarEstudiante;
     private javax.swing.JButton btnPostular;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -503,11 +602,13 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel panelBuscarEstudiante;
-    private javax.swing.JPanel panelConsultarBecas;
+    private javax.swing.JPanel panelConsultaEstudiante;
     private javax.swing.JPanel panelPostularBeca;
     private javax.swing.JPanel panelRegistrarEstudiante;
     private javax.swing.JTabbedPane tabbedPanePrincipal;
+    private javax.swing.JTextArea txtAreaEstudiante;
     private javax.swing.JTextField txtCodigoBeca;
     private javax.swing.JTextField txtDireccionEstadia;
     private javax.swing.JTextField txtDireccionHogar;
@@ -518,6 +619,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JTextField txtPorcentajeRSH;
     private javax.swing.JTextField txtPromedioNotas;
     private javax.swing.JTextField txtRut;
+    private javax.swing.JTextField txtRutBuscar;
     private javax.swing.JTextField txtRutPostulacion;
     private javax.swing.JTextField txtSexo;
     // End of variables declaration//GEN-END:variables
