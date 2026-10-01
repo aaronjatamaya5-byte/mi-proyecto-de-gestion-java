@@ -28,15 +28,22 @@ public class ServicioPersistencia {
 
     
     
-    public static void cargarDatosPrueba(ProgramaGestion programa) {
-        System.out.println("Base de datos vacía. Inyectando datos de prueba por defecto en el código...");
+public static void cargarDatosPrueba(ProgramaGestion programa) {
+        System.out.println("Base de datos vacía. Agregando datos base...");
         
-        programa.registrarEstudiante(new Estudiante("Juan Perez", 20, "111-1", "M", "Calle A", "Residencia B", 40.0, 8, 300000, 6.5));
-        programa.registrarEstudiante(new Estudiante("Maria Lopez", 22, "222-2", "F", "Calle C", "Pasaje D", 60.0, 5, 450000, 5.8));
-        programa.registrarEstudiante(new Estudiante("Carlos Gomez", 19, "333-3", "M", "Avenida E", "Avenida E", 80.0, 2, 800000, 4.5));
-     
-        programa.registrarBeca(new BecaAcademica(101, "Beca Excelencia Academica", 80, 2));
-        programa.registrarBeca(new BecaDeportiva(102, "Beca Deportistas", 70, 1));
+        programa.registrarEstudiante(new Estudiante("Camila Rojas", 21, "20.123.456-7", "F", "Av. Libertad 123, Viña del Mar", "Cerro Alegre 45, Valparaiso", 40.0, 7, 450000, 6.2));
+        programa.registrarEstudiante(new Estudiante("Matias Soto", 19, "21.345.678-9", "M", "Calle Condell 500, Quilpue", "Calle Condell 500, Quilpue", 60.0, 4, 600000, 5.5));
+        programa.registrarEstudiante(new Estudiante("Valentina Muñoz", 23, "19.876.543-K", "F", "Av. Argentina 800, Valparaiso", "Plaza Echaurren 12, Valparaiso", 80.0, 9, 850000, 4.8));
+        programa.registrarEstudiante(new Estudiante("Diego Tapia", 20, "20.987.654-3", "M", "San Martin 432, Viña del Mar", "San Martin 432, Viña del Mar", 50.0, 2, 500000, 6.8));
+        programa.registrarEstudiante(new Estudiante("Sofia Vergara", 22, "18.111.222-3", "F", "Los Carrera 100, Quilpue", "Av. Brasil 200, Valparaiso", 30.0, 8, 350000, 6.0));
+        programa.registrarEstudiante(new Estudiante("Lucas Pinto", 18, "22.444.555-6", "M", "Alvarez 999, Viña del Mar", "Alvarez 999, Viña del Mar", 90.0, 10, 1200000, 4.2));
+        programa.registrarEstudiante(new Estudiante("Isidora Blanco", 24, "17.999.888-7", "F", "Blanco Encalada 30, Quilpue", "Blanco Encalada 30, Quilpue", 40.0, 5, 400000, 5.9));
+        
+        programa.registrarBeca(new BecaAcademica(101, "Beca Excelencia Academica PUCV", 85, 3));
+        programa.registrarBeca(new BecaDeportiva(102, "Beca Deportista Destacado Regional", 70, 2));
+        programa.registrarBeca(new BecaSocioeconomica(103, "Beca de Residencia y Alimentacion", 60, 4));
+        programa.registrarBeca(new BecaAcademica(104, "Beca de Honor en Ciencias", 95, 1));
+        programa.registrarBeca(new BecaSocioeconomica(105, "Beca de Apoyo Estudiantil Junaeb", 50, 5));
     }
     
     //Para cuando abrimos el sistema

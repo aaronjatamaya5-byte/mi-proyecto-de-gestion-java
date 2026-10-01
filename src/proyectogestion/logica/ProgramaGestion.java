@@ -197,7 +197,7 @@ public class ProgramaGestion {
             int cuposDisponibles=beca.getCupos();
             int puntajeRequerido=beca.getPuntajeMinimo();
             
-            System.out.println("Beca:" + beca.getNombreBeca() + "| Cupos iniciales " + cuposDisponibles);
+            System.out.println("Beca: " + beca.getNombreBeca() + " | Cupos iniciales " + cuposDisponibles);
             
             ArrayList<Postulacion> listaPostulaciones=beca.getListaPostulaciones();
             

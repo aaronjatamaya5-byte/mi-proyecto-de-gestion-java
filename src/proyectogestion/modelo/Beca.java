@@ -102,4 +102,25 @@ public abstract class Beca {
         }
         return aptos;
     }
+    
+    public String obtenerEstadoPostulacionPorRut(String rut)
+    {
+        String estado = "Desconocido";
+        boolean estadoEncontrado=false;
+        int i=0;
+        
+        while(i<this.listaPostulaciones.size() && !estadoEncontrado)
+        {
+            Postulacion p=this.listaPostulaciones.get(i);
+            
+            if(p.getPostulante().getRut().equals(rut))
+            {
+                estado=p.getEstadoPostulacion();
+                estadoEncontrado=true;
+            }
+            i++;
+        }
+        
+        return estado;
+    }
 }

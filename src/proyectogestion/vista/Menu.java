@@ -67,7 +67,8 @@ public class Menu {
             System.out.println("3. Buscar estudiante por rut");
             System.out.println("4. Modificar datos de estudiante");
             System.out.println("5. Eliminar estudiante");
-            System.out.println("6. Volver al menu principal");
+            System.out.println("6. Consultar becas de un estudiante");
+            System.out.println("7. Volver al menu principal");
             System.out.println("Ingrese una opcion: ");
             
             String opcion=entrada.nextLine();
@@ -215,6 +216,27 @@ public class Menu {
                     break;
                     
                 case "6":
+                    System.out.println("Ingrese el rut del estudiante: ");
+                    String rut=entrada.nextLine();
+                    
+                    java.util.ArrayList <Beca>becasDelEstudiante=programa.obtenerBecasEstudiante(rut);
+                    
+                    if(becasDelEstudiante.isEmpty())
+                    {
+                        System.out.println("El estudiante no ha postulado a ninguna beca o el rut no existe");
+                    }
+                    else
+                    {
+                        System.out.println("\n--- Becas a las que postulo el rut " + rut + " ---");
+                        for(Beca beca : becasDelEstudiante)
+                        {
+                           String estadoPostulacion = beca.obtenerEstadoPostulacionPorRut(rut);
+                           System.out.println("- Codigo: " + beca.getCodigo() + " | Beca: " + beca.getNombreBeca() + " | Estado: " + estadoPostulacion);
+                        }
+                    }
+                    break;
+                    
+                case "7":
                     volver=true;
                     break;
                     
