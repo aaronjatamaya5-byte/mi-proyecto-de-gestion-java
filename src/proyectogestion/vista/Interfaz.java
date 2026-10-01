@@ -8,6 +8,12 @@ import proyectogestion.modelo.Estudiante;
 import javax.swing.JOptionPane;
 import proyectogestion.excepciones.EstudianteNoEncontradoException;
 import proyectogestion.excepciones.BecaNoEncontradaException;
+import proyectogestion.modelo.Beca;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import proyectogestion.modelo.BecaAcademica;
+import proyectogestion.modelo.BecaDeportiva;
+import proyectogestion.modelo.BecaSocioeconomica;
 
 /**
  *
@@ -56,6 +62,10 @@ public class Interfaz extends javax.swing.JFrame {
         txtNivelDeportividad = new javax.swing.JTextField();
         txtIngresosFamiliares = new javax.swing.JTextField();
         txtPromedioNotas = new javax.swing.JTextField();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tblEstudiantes = new javax.swing.JTable();
+        btnListarEstudiantes = new javax.swing.JButton();
+        jLabel16 = new javax.swing.JLabel();
         panelPostularBeca = new javax.swing.JPanel();
         txtRutPostulacion = new javax.swing.JTextField();
         txtCodigoBeca = new javax.swing.JTextField();
@@ -69,8 +79,54 @@ public class Interfaz extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAreaEstudiante = new javax.swing.JTextArea();
         jLabel14 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        txtNuevaEdad = new javax.swing.JTextField();
+        txtNuevaDireccionHogar = new javax.swing.JTextField();
+        txtNuevaDireccionEstadia = new javax.swing.JTextField();
+        txtNuevoRSH = new javax.swing.JTextField();
+        txtNuevosIngresos = new javax.swing.JTextField();
+        txtNuevoPromedio = new javax.swing.JTextField();
+        txtNuevoNivelDeporte = new javax.swing.JTextField();
+        btnModificarEstudiante = new javax.swing.JButton();
+        btnEliminarEstudiante = new javax.swing.JButton();
         panelConsultaEstudiante = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
+        txtRutConsulta = new javax.swing.JTextField();
+        btnConsultarBecas = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblBecasEstudiante = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        btnRegistrarBeca = new javax.swing.JButton();
+        txtCodigoNuevaBeca = new javax.swing.JTextField();
+        txtNombreBeca = new javax.swing.JTextField();
+        txtPuntajeMinimoBeca = new javax.swing.JTextField();
+        txtCuposBeca = new javax.swing.JTextField();
+        txtCodigoBuscarBeca = new javax.swing.JTextField();
+        btnBuscarBeca = new javax.swing.JButton();
+        btnModificarBeca = new javax.swing.JButton();
+        btnEliminarBeca = new javax.swing.JButton();
+        txtNuevosCuposBeca = new javax.swing.JTextField();
+        txtNuevoPuntajeBeca = new javax.swing.JTextField();
+        btnListarBecas = new javax.swing.JButton();
+        cmbTipoBeca = new javax.swing.JComboBox<>();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tblBecas = new javax.swing.JTable();
+        jPanel2 = new javax.swing.JPanel();
+        btnAsignarBecas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -149,100 +205,141 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
 
+        tblEstudiantes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(tblEstudiantes);
+
+        btnListarEstudiantes.setText("Listar estudiantes");
+        btnListarEstudiantes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListarEstudiantesActionPerformed(evt);
+            }
+        });
+
+        jLabel16.setText("Listado");
+
         javax.swing.GroupLayout panelRegistrarEstudianteLayout = new javax.swing.GroupLayout(panelRegistrarEstudiante);
         panelRegistrarEstudiante.setLayout(panelRegistrarEstudianteLayout);
         panelRegistrarEstudianteLayout.setHorizontalGroup(
             panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRegistrarEstudianteLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
                 .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelRegistrarEstudianteLayout.createSequentialGroup()
+                        .addGap(21, 21, 21)
                         .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel1))
-                        .addGap(41, 41, 41)
-                        .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtRut, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelRegistrarEstudianteLayout.createSequentialGroup()
+                                .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel1))
+                                .addGap(41, 41, 41)
+                                .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                                    .addComponent(txtDireccionHogar)
+                                    .addComponent(txtRut)
+                                    .addComponent(txtEdad)
+                                    .addComponent(txtSexo, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)))
+                            .addComponent(jLabel2)
+                            .addGroup(panelRegistrarEstudianteLayout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addGap(40, 40, 40)
+                                .addComponent(txtPorcentajeRSH, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelRegistrarEstudianteLayout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addGap(40, 40, 40)
+                                .addComponent(txtPromedioNotas, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel3)
                             .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(txtNombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
-                                .addComponent(txtDireccionHogar))))
+                                .addGroup(panelRegistrarEstudianteLayout.createSequentialGroup()
+                                    .addComponent(jLabel9)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtIngresosFamiliares, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelRegistrarEstudianteLayout.createSequentialGroup()
+                                    .addComponent(jLabel8)
+                                    .addGap(24, 24, 24)
+                                    .addComponent(txtNivelDeportividad))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelRegistrarEstudianteLayout.createSequentialGroup()
+                                    .addComponent(jLabel6)
+                                    .addGap(30, 30, 30)
+                                    .addComponent(txtDireccionEstadia)))))
                     .addGroup(panelRegistrarEstudianteLayout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(btnRegistrar))
-                    .addGroup(panelRegistrarEstudianteLayout.createSequentialGroup()
-                        .addComponent(jLabel10)
-                        .addGap(40, 40, 40)
-                        .addComponent(txtPromedioNotas, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addGroup(panelRegistrarEstudianteLayout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(40, 40, 40)
-                        .addComponent(txtPorcentajeRSH, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelRegistrarEstudianteLayout.createSequentialGroup()
-                            .addComponent(jLabel6)
-                            .addGap(30, 30, 30)
-                            .addComponent(txtDireccionEstadia))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelRegistrarEstudianteLayout.createSequentialGroup()
-                            .addComponent(jLabel8)
-                            .addGap(24, 24, 24)
-                            .addComponent(txtNivelDeportividad))
-                        .addGroup(panelRegistrarEstudianteLayout.createSequentialGroup()
-                            .addComponent(jLabel9)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtIngresosFamiliares, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(91, 91, 91)
+                        .addComponent(btnRegistrar)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnListarEstudiantes)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16))
+                .addGap(22, 22, 22))
         );
         panelRegistrarEstudianteLayout.setVerticalGroup(
             panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRegistrarEstudianteLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelRegistrarEstudianteLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRegistrarEstudianteLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel16)
+                        .addGap(6, 6, 6)))
                 .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtRut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtDireccionHogar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
-                .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtDireccionEstadia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
-                .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(txtPromedioNotas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(txtNivelDeportividad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
-                .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPorcentajeRSH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtIngresosFamiliares, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
-                .addComponent(btnRegistrar)
-                .addGap(23, 23, 23))
+                .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelRegistrarEstudianteLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
+                        .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(txtRut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(27, 27, 27)
+                        .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(txtDireccionHogar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(36, 36, 36)
+                        .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(txtDireccionEstadia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(41, 41, 41)
+                        .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10)
+                            .addComponent(txtPromedioNotas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(28, 28, 28)
+                        .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8)
+                            .addComponent(txtNivelDeportividad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(43, 43, 43)
+                        .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPorcentajeRSH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(31, 31, 31)
+                        .addGroup(panelRegistrarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtIngresosFamiliares, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(46, 46, 46)
+                        .addComponent(btnRegistrar))
+                    .addGroup(panelRegistrarEstudianteLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(btnListarEstudiantes)))
+                .addContainerGap(735, Short.MAX_VALUE))
         );
 
         tabbedPanePrincipal.addTab("Registro Estudiante", panelRegistrarEstudiante);
@@ -293,7 +390,7 @@ public class Interfaz extends javax.swing.JFrame {
                     .addComponent(txtCodigoBeca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addComponent(btnPostular)
-                .addContainerGap(412, Short.MAX_VALUE))
+                .addContainerGap(1090, Short.MAX_VALUE))
         );
 
         tabbedPanePrincipal.addTab("Postulación", panelPostularBeca);
@@ -320,73 +417,410 @@ public class Interfaz extends javax.swing.JFrame {
 
         jLabel14.setText("Datos del estudiante:");
 
+        jLabel17.setText("Nueva edad:");
+
+        jLabel18.setText("Nueva dirección hogar:");
+
+        jLabel19.setText("Nuevo RSH:");
+
+        jLabel20.setText("Nuevos ingresos:");
+
+        jLabel21.setText("Nueva dirección estadía:");
+
+        jLabel22.setText("Nuevo promedio:");
+
+        jLabel23.setText("Nuevo nivel deporte:");
+
+        txtNuevaDireccionHogar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNuevaDireccionHogarActionPerformed(evt);
+            }
+        });
+
+        txtNuevosIngresos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNuevosIngresosActionPerformed(evt);
+            }
+        });
+
+        btnModificarEstudiante.setText("Modificar estudiante");
+        btnModificarEstudiante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarEstudianteActionPerformed(evt);
+            }
+        });
+
+        btnEliminarEstudiante.setText("Eliminar estudiante");
+        btnEliminarEstudiante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarEstudianteActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelBuscarEstudianteLayout = new javax.swing.GroupLayout(panelBuscarEstudiante);
         panelBuscarEstudiante.setLayout(panelBuscarEstudianteLayout);
         panelBuscarEstudianteLayout.setHorizontalGroup(
             panelBuscarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBuscarEstudianteLayout.createSequentialGroup()
-                .addGap(80, 80, 80)
                 .addGroup(panelBuscarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelBuscarEstudianteLayout.createSequentialGroup()
+                        .addGap(54, 54, 54)
                         .addGroup(panelBuscarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel18)
+                            .addComponent(jLabel17)
                             .addComponent(jLabel14)
-                            .addComponent(jLabel13))
-                        .addGap(40, 40, 40)
-                        .addComponent(txtRutBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(63, 63, 63)
-                        .addComponent(btnBuscarEstudiante)))
-                .addContainerGap(188, Short.MAX_VALUE))
+                            .addGroup(panelBuscarEstudianteLayout.createSequentialGroup()
+                                .addComponent(jLabel13)
+                                .addGap(62, 62, 62)
+                                .addComponent(txtRutBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnBuscarEstudiante))
+                            .addGroup(panelBuscarEstudianteLayout.createSequentialGroup()
+                                .addGroup(panelBuscarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel19)
+                                    .addComponent(jLabel20)
+                                    .addComponent(jLabel22)
+                                    .addComponent(jLabel21)
+                                    .addComponent(jLabel23))
+                                .addGap(90, 90, 90)
+                                .addGroup(panelBuscarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtNuevaDireccionHogar, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
+                                    .addComponent(txtNuevaDireccionEstadia)
+                                    .addComponent(txtNuevoRSH)
+                                    .addComponent(txtNuevaEdad)
+                                    .addComponent(txtNuevosIngresos)
+                                    .addComponent(txtNuevoPromedio)
+                                    .addComponent(txtNuevoNivelDeporte)))))
+                    .addGroup(panelBuscarEstudianteLayout.createSequentialGroup()
+                        .addGap(161, 161, 161)
+                        .addGroup(panelBuscarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnEliminarEstudiante)
+                            .addComponent(btnModificarEstudiante))))
+                .addContainerGap(421, Short.MAX_VALUE))
         );
         panelBuscarEstudianteLayout.setVerticalGroup(
             panelBuscarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBuscarEstudianteLayout.createSequentialGroup()
-                .addGap(126, 126, 126)
+                .addGap(30, 30, 30)
                 .addGroup(panelBuscarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
                     .addComponent(txtRutBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscarEstudiante)
-                    .addComponent(jLabel13))
-                .addGap(32, 32, 32)
+                    .addComponent(btnBuscarEstudiante))
+                .addGap(18, 18, 18)
                 .addComponent(jLabel14)
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(333, Short.MAX_VALUE))
+                .addGroup(panelBuscarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelBuscarEstudianteLayout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(jLabel17))
+                    .addGroup(panelBuscarEstudianteLayout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(txtNuevaEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(panelBuscarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(txtNuevaDireccionHogar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(panelBuscarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtNuevaDireccionEstadia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel21))
+                .addGap(28, 28, 28)
+                .addGroup(panelBuscarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNuevoRSH, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel19))
+                .addGap(21, 21, 21)
+                .addGroup(panelBuscarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNuevosIngresos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel20))
+                .addGap(32, 32, 32)
+                .addGroup(panelBuscarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtNuevoPromedio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel22))
+                .addGap(41, 41, 41)
+                .addGroup(panelBuscarEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23)
+                    .addComponent(txtNuevoNivelDeporte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btnModificarEstudiante)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnEliminarEstudiante)
+                .addContainerGap(691, Short.MAX_VALUE))
         );
 
         tabbedPanePrincipal.addTab("Busqueda", panelBuscarEstudiante);
 
-        jLabel15.setText("jLabel15");
+        jLabel15.setText("RUT del estudiante:");
+
+        btnConsultarBecas.setText("Consultar");
+        btnConsultarBecas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarBecasActionPerformed(evt);
+            }
+        });
+
+        tblBecasEstudiante.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(tblBecasEstudiante);
 
         javax.swing.GroupLayout panelConsultaEstudianteLayout = new javax.swing.GroupLayout(panelConsultaEstudiante);
         panelConsultaEstudiante.setLayout(panelConsultaEstudianteLayout);
         panelConsultaEstudianteLayout.setHorizontalGroup(
             panelConsultaEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelConsultaEstudianteLayout.createSequentialGroup()
-                .addGap(136, 136, 136)
-                .addComponent(jLabel15)
-                .addContainerGap(517, Short.MAX_VALUE))
+                .addGap(23, 23, 23)
+                .addGroup(panelConsultaEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelConsultaEstudianteLayout.createSequentialGroup()
+                        .addComponent(jLabel15)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtRutConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(48, 48, 48)
+                        .addComponent(btnConsultarBecas)))
+                .addContainerGap(397, Short.MAX_VALUE))
         );
         panelConsultaEstudianteLayout.setVerticalGroup(
             panelConsultaEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelConsultaEstudianteLayout.createSequentialGroup()
-                .addGap(86, 86, 86)
-                .addComponent(jLabel15)
-                .addContainerGap(547, Short.MAX_VALUE))
+                .addGap(40, 40, 40)
+                .addGroup(panelConsultaEstudianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(txtRutConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnConsultarBecas))
+                .addGap(36, 36, 36)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(802, Short.MAX_VALUE))
         );
 
         tabbedPanePrincipal.addTab("Consulta", panelConsultaEstudiante);
+
+        jLabel24.setText("Tipo de beca:");
+
+        jLabel25.setText("Código:");
+
+        jLabel26.setText("Nombre:");
+
+        jLabel27.setText("Puntaje mínimo:");
+
+        jLabel28.setText("Cupos:");
+
+        jLabel29.setText("Código a buscar: ");
+
+        jLabel30.setText("Nuevos cupos:");
+
+        jLabel31.setText("Nuevo puntaje:");
+
+        btnRegistrarBeca.setText("Registrar beca");
+        btnRegistrarBeca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarBecaActionPerformed(evt);
+            }
+        });
+
+        txtCodigoNuevaBeca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCodigoNuevaBecaActionPerformed(evt);
+            }
+        });
+
+        btnBuscarBeca.setText("Buscar beca ");
+        btnBuscarBeca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarBecaActionPerformed(evt);
+            }
+        });
+
+        btnModificarBeca.setText("Modificar beca ");
+        btnModificarBeca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarBecaActionPerformed(evt);
+            }
+        });
+
+        btnEliminarBeca.setText("Eliminar beca");
+        btnEliminarBeca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarBecaActionPerformed(evt);
+            }
+        });
+
+        txtNuevosCuposBeca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNuevosCuposBecaActionPerformed(evt);
+            }
+        });
+
+        btnListarBecas.setText("Listar becas");
+        btnListarBecas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListarBecasActionPerformed(evt);
+            }
+        });
+
+        cmbTipoBeca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Académica", "Depotiva", "Socieconómica" }));
+        cmbTipoBeca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbTipoBecaActionPerformed(evt);
+            }
+        });
+
+        tblBecas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane4.setViewportView(tblBecas);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel27, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel28, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel26, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel25, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addGap(71, 71, 71)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cmbTipoBeca, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtCodigoNuevaBeca)
+                                    .addComponent(txtNombreBeca)
+                                    .addComponent(txtPuntajeMinimoBeca)
+                                    .addComponent(txtCuposBeca)))
+                            .addComponent(btnModificarBeca)
+                            .addComponent(btnListarBecas)
+                            .addComponent(btnEliminarBeca)
+                            .addComponent(btnRegistrarBeca)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel29)
+                                    .addComponent(jLabel30)
+                                    .addComponent(jLabel31))
+                                .addGap(42, 42, 42)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtCodigoBuscarBeca, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
+                                    .addComponent(txtNuevosCuposBeca)
+                                    .addComponent(txtNuevoPuntajeBeca))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                        .addComponent(btnBuscarBeca)
+                        .addGap(350, 350, 350))))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(47, 47, 47)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel24)
+                    .addComponent(cmbTipoBeca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25)
+                    .addComponent(txtCodigoNuevaBeca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNombreBeca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel26))
+                .addGap(24, 24, 24)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel27)
+                    .addComponent(txtPuntajeMinimoBeca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel28)
+                    .addComponent(txtCuposBeca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
+                .addComponent(btnRegistrarBeca)
+                .addGap(51, 51, 51)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel29)
+                    .addComponent(txtCodigoBuscarBeca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarBeca))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel30)
+                    .addComponent(txtNuevosCuposBeca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNuevoPuntajeBeca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel31))
+                .addGap(49, 49, 49)
+                .addComponent(btnModificarBeca)
+                .addGap(18, 18, 18)
+                .addComponent(btnEliminarBeca)
+                .addGap(18, 18, 18)
+                .addComponent(btnListarBecas)
+                .addGap(30, 30, 30)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(246, Short.MAX_VALUE))
+        );
+
+        tabbedPanePrincipal.addTab("Becas", jPanel1);
+
+        btnAsignarBecas.setText("Asignar becas");
+        btnAsignarBecas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAsignarBecasActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(211, 211, 211)
+                .addComponent(btnAsignarBecas)
+                .addContainerGap(548, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(85, 85, 85)
+                .addComponent(btnAsignarBecas)
+                .addContainerGap(1220, Short.MAX_VALUE))
+        );
+
+        tabbedPanePrincipal.addTab("Asignación", jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tabbedPanePrincipal)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(tabbedPanePrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 872, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(37, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(tabbedPanePrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 685, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1534, Short.MAX_VALUE))
+                .addComponent(tabbedPanePrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 1363, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 856, Short.MAX_VALUE))
         );
 
         pack();
@@ -566,6 +1000,396 @@ public class Interfaz extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtRutBuscarActionPerformed
 
+    private void btnConsultarBecasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarBecasActionPerformed
+        // TODO add your handling code here:
+        String rut = txtRutConsulta.getText().trim();
+
+        ArrayList<Beca> becas = programaGestion.obtenerBecasEstudiante(rut);
+
+        DefaultTableModel modelo = new DefaultTableModel();
+
+        modelo.addColumn("Código");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Puntaje mínimo");
+        modelo.addColumn("Cupos");
+
+        for (Beca beca : becas) {
+
+            modelo.addRow(new Object[]{ 
+                beca.getCodigo(),
+                beca.getNombreBeca(),
+                beca.getPuntajeMinimo(),
+                beca.getCupos()
+            });
+        }
+
+        tblBecasEstudiante.setModel(modelo);
+
+        if (becas.isEmpty()) {
+
+            JOptionPane.showMessageDialog(
+                this,
+                "No se encontraron becas asociadas a ese RUT.",
+                "Sin resultados",
+                JOptionPane.INFORMATION_MESSAGE
+            );
+        }
+    }//GEN-LAST:event_btnConsultarBecasActionPerformed
+
+    private void btnListarEstudiantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarEstudiantesActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel modelo = new DefaultTableModel();
+
+        modelo.addColumn("RUT");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Edad");
+        modelo.addColumn("Sexo");
+        modelo.addColumn("RSH");
+        modelo.addColumn("Ingresos");
+        modelo.addColumn("Promedio");
+        modelo.addColumn("Deportividad");
+
+        for (Estudiante estudiante : programaGestion.getListaEstudiantes()) {
+
+            modelo.addRow(new Object[]{
+                estudiante.getRut(),
+                estudiante.getNombre(),
+                estudiante.getEdad(),
+                estudiante.getSexo(),
+                estudiante.getPorcentajeRSH(),
+                estudiante.getIngresosFamiliares(),
+                estudiante.getPromedioNotas(),
+                estudiante.getNivelDeportividad()
+            });
+        }
+
+        tblEstudiantes.setModel(modelo);
+    }//GEN-LAST:event_btnListarEstudiantesActionPerformed
+
+    private void txtNuevosIngresosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNuevosIngresosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNuevosIngresosActionPerformed
+
+    private void txtNuevaDireccionHogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNuevaDireccionHogarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNuevaDireccionHogarActionPerformed
+
+    private void btnModificarEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarEstudianteActionPerformed
+        // TODO add your handling code here:
+        try {
+            String rut = txtRutBuscar.getText().trim();
+
+            int nuevaEdad = Integer.parseInt(txtNuevaEdad.getText().trim());
+
+            String nuevaDireccionHogar = txtNuevaDireccionHogar.getText().trim();
+
+            String nuevaDireccionEstadia = txtNuevaDireccionEstadia.getText().trim();
+
+            double nuevoRSH = Double.parseDouble(txtNuevoRSH.getText().trim());
+
+            int nuevosIngresos = Integer.parseInt(txtNuevosIngresos.getText().trim());
+
+            double nuevoPromedio = Double.parseDouble(txtNuevoPromedio.getText().trim());
+
+            int nuevoNivelDeporte = Integer.parseInt(txtNuevoNivelDeporte.getText().trim());
+
+            boolean resultado = programaGestion.modificarEstudiante(
+                    rut,
+                    nuevaEdad,
+                    nuevaDireccionHogar,
+                    nuevaDireccionEstadia,
+                    nuevoRSH,
+                    nuevosIngresos,
+                    nuevoPromedio,
+                    nuevoNivelDeporte
+            );
+
+            if (resultado) {
+
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Estudiante modificado correctamente."
+                );
+
+            } else {
+
+                JOptionPane.showMessageDialog(
+                    this,
+                    "No se encontró un estudiante con ese RUT.",
+                    "Estudiante no encontrado",
+                    JOptionPane.WARNING_MESSAGE
+                );
+            }
+
+        } catch (NumberFormatException e) {
+
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Revisa los campos numéricos.",
+                    "Error de datos",
+                    JOptionPane.ERROR_MESSAGE
+            );
+        }
+    }//GEN-LAST:event_btnModificarEstudianteActionPerformed
+
+    private void btnEliminarEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarEstudianteActionPerformed
+        // TODO add your handling code here:
+        String rut = txtRutBuscar.getText().trim();
+
+        boolean resultado = programaGestion.eliminarEstudiante(rut);
+
+        if (resultado) {
+
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Estudiante eliminado correctamente."
+            );
+
+            txtAreaEstudiante.setText("");
+            txtRutBuscar.setText("");
+
+        } else {
+
+            JOptionPane.showMessageDialog(
+                    this,
+                    "No se encontró un estudiante con ese RUT.",
+                    "Estudiante no encontrado",
+                    JOptionPane.WARNING_MESSAGE
+            );
+        }
+    }//GEN-LAST:event_btnEliminarEstudianteActionPerformed
+
+    private void btnRegistrarBecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarBecaActionPerformed
+        // TODO add your handling code here:
+        try {
+            int codigo = Integer.parseInt(txtCodigoNuevaBeca.getText().trim());
+            String nombre = txtNombreBeca.getText().trim();
+            int puntajeMinimo = Integer.parseInt(txtPuntajeMinimoBeca.getText().trim());
+            int cupos = Integer.parseInt(txtCuposBeca.getText().trim());
+
+            String tipo = cmbTipoBeca.getSelectedItem().toString();
+
+            Beca nuevaBeca = null;
+
+            if (tipo.equals("Académica")) {
+                nuevaBeca = new BecaAcademica(
+                codigo, nombre, puntajeMinimo, cupos
+                );
+
+            } else if (tipo.equals("Deportiva")) {
+                nuevaBeca = new BecaDeportiva(
+                    codigo, nombre, puntajeMinimo, cupos
+                );
+
+            } else if (tipo.equals("Socioeconómica")) {
+                nuevaBeca = new BecaSocioeconomica(
+                        codigo, nombre, puntajeMinimo, cupos
+                );
+            }
+
+            programaGestion.registrarBeca(nuevaBeca);
+
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Beca registrada correctamente."
+            );
+
+        } catch (NumberFormatException e) {
+
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Código, puntaje mínimo y cupos deben ser números.",
+                    "Error de datos",
+                    JOptionPane.ERROR_MESSAGE
+            );
+        }
+    }//GEN-LAST:event_btnRegistrarBecaActionPerformed
+
+    private void txtCodigoNuevaBecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodigoNuevaBecaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCodigoNuevaBecaActionPerformed
+
+    private void cmbTipoBecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTipoBecaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbTipoBecaActionPerformed
+
+    private void btnListarBecasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarBecasActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel modelo = new DefaultTableModel();
+
+        modelo.addColumn("Código");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Tipo");
+        modelo.addColumn("Puntaje mínimo");
+        modelo.addColumn("Cupos");
+
+        for (Beca beca : programaGestion.getMapaBecas().values()) {
+
+            modelo.addRow(new Object[]{
+                beca.getCodigo(),
+                beca.getNombreBeca(),
+                beca.getClass().getSimpleName(),
+                beca.getPuntajeMinimo(),
+                beca.getCupos()
+            });
+        }
+
+        tblBecas.setModel(modelo);
+        
+    }//GEN-LAST:event_btnListarBecasActionPerformed
+
+    private void btnBuscarBecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarBecaActionPerformed
+        // TODO add your handling code here:
+        try {
+            int codigo = Integer.parseInt(
+                    txtCodigoBuscarBeca.getText().trim()
+            );
+
+            Beca beca = programaGestion.buscarBeca(codigo);
+
+            DefaultTableModel modelo = new DefaultTableModel();
+
+            modelo.addColumn("Código");
+            modelo.addColumn("Nombre");
+            modelo.addColumn("Tipo");
+            modelo.addColumn("Puntaje mínimo");
+            modelo.addColumn("Cupos");
+
+            if (beca == null) {
+
+                JOptionPane.showMessageDialog(
+                        this,
+                        "No se encontró una beca con ese código.",
+                        "Beca no encontrada",
+                        JOptionPane.WARNING_MESSAGE
+                );
+
+            } else {
+
+                modelo.addRow(new Object[]{
+                    beca.getCodigo(),
+                    beca.getNombreBeca(),
+                    beca.getClass().getSimpleName(),
+                    beca.getPuntajeMinimo(),
+                    beca.getCupos()
+                });
+            }
+
+            tblBecas.setModel(modelo);
+
+        } catch (NumberFormatException e) {
+
+            JOptionPane.showMessageDialog(
+                    this,
+                    "El código de la beca debe ser numérico.",
+                    "Error de datos",
+                    JOptionPane.ERROR_MESSAGE
+            );
+        }
+    }//GEN-LAST:event_btnBuscarBecaActionPerformed
+
+    private void txtNuevosCuposBecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNuevosCuposBecaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNuevosCuposBecaActionPerformed
+
+    private void btnModificarBecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarBecaActionPerformed
+        // TODO add your handling code here:
+        try {
+            int codigo = Integer.parseInt(
+            txtCodigoBuscarBeca.getText().trim()
+            );
+
+            int nuevosCupos = Integer.parseInt(
+            txtNuevosCuposBeca.getText().trim()
+            );
+
+            int nuevoPuntajeMinimo = Integer.parseInt(
+            txtNuevoPuntajeBeca.getText().trim()
+            );
+
+            boolean resultado = programaGestion.modificarBeca(
+            codigo,
+            nuevosCupos,
+            nuevoPuntajeMinimo
+            );
+
+            if (resultado) {
+
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Beca modificada correctamente."
+                );
+
+            } else {
+
+                JOptionPane.showMessageDialog(
+                        this,
+                        "No se encontró una beca con ese código.",
+                        "Beca no encontrada",
+                        JOptionPane.WARNING_MESSAGE
+                );
+            }
+
+        } catch (NumberFormatException e) {
+
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Código, cupos y puntaje mínimo deben ser números.",
+                    "Error de datos",
+                    JOptionPane.ERROR_MESSAGE
+            );
+        }
+    }//GEN-LAST:event_btnModificarBecaActionPerformed
+
+    private void btnEliminarBecaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarBecaActionPerformed
+        // TODO add your handling code here:
+        try {
+            int codigo = Integer.parseInt(
+                    txtCodigoBuscarBeca.getText().trim()
+            );
+
+            boolean resultado = programaGestion.eliminarBeca(codigo);
+
+            if (resultado) {
+
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Beca eliminada correctamente."
+                );
+
+                txtCodigoBuscarBeca.setText("");
+
+            } else {
+
+                JOptionPane.showMessageDialog(
+                        this,
+                        "No se encontró una beca con ese código.",
+                        "Beca no encontrada",
+                        JOptionPane.WARNING_MESSAGE
+                );
+            }
+
+        } catch (NumberFormatException e) {
+
+            JOptionPane.showMessageDialog(
+                    this,
+                    "El código de la beca debe ser numérico.",
+                    "Error de datos",
+                    JOptionPane.ERROR_MESSAGE
+            );
+        }
+    }//GEN-LAST:event_btnEliminarBecaActionPerformed
+
+    private void btnAsignarBecasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarBecasActionPerformed
+        // TODO add your handling code here:
+        programaGestion.asignarBecas();
+
+        JOptionPane.showMessageDialog(
+                this,
+                "Proceso de asignación de becas ejecutado."
+        );
+    }//GEN-LAST:event_btnAsignarBecasActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -584,9 +1408,20 @@ public class Interfaz extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAsignarBecas;
+    private javax.swing.JButton btnBuscarBeca;
     private javax.swing.JButton btnBuscarEstudiante;
+    private javax.swing.JButton btnConsultarBecas;
+    private javax.swing.JButton btnEliminarBeca;
+    private javax.swing.JButton btnEliminarEstudiante;
+    private javax.swing.JButton btnListarBecas;
+    private javax.swing.JButton btnListarEstudiantes;
+    private javax.swing.JButton btnModificarBeca;
+    private javax.swing.JButton btnModificarEstudiante;
     private javax.swing.JButton btnPostular;
     private javax.swing.JButton btnRegistrar;
+    private javax.swing.JButton btnRegistrarBeca;
+    private javax.swing.JComboBox<String> cmbTipoBeca;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -594,32 +1429,71 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JPanel panelBuscarEstudiante;
     private javax.swing.JPanel panelConsultaEstudiante;
     private javax.swing.JPanel panelPostularBeca;
     private javax.swing.JPanel panelRegistrarEstudiante;
     private javax.swing.JTabbedPane tabbedPanePrincipal;
+    private javax.swing.JTable tblBecas;
+    private javax.swing.JTable tblBecasEstudiante;
+    private javax.swing.JTable tblEstudiantes;
     private javax.swing.JTextArea txtAreaEstudiante;
     private javax.swing.JTextField txtCodigoBeca;
+    private javax.swing.JTextField txtCodigoBuscarBeca;
+    private javax.swing.JTextField txtCodigoNuevaBeca;
+    private javax.swing.JTextField txtCuposBeca;
     private javax.swing.JTextField txtDireccionEstadia;
     private javax.swing.JTextField txtDireccionHogar;
     private javax.swing.JTextField txtEdad;
     private javax.swing.JTextField txtIngresosFamiliares;
     private javax.swing.JTextField txtNivelDeportividad;
     private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtNombreBeca;
+    private javax.swing.JTextField txtNuevaDireccionEstadia;
+    private javax.swing.JTextField txtNuevaDireccionHogar;
+    private javax.swing.JTextField txtNuevaEdad;
+    private javax.swing.JTextField txtNuevoNivelDeporte;
+    private javax.swing.JTextField txtNuevoPromedio;
+    private javax.swing.JTextField txtNuevoPuntajeBeca;
+    private javax.swing.JTextField txtNuevoRSH;
+    private javax.swing.JTextField txtNuevosCuposBeca;
+    private javax.swing.JTextField txtNuevosIngresos;
     private javax.swing.JTextField txtPorcentajeRSH;
     private javax.swing.JTextField txtPromedioNotas;
+    private javax.swing.JTextField txtPuntajeMinimoBeca;
     private javax.swing.JTextField txtRut;
     private javax.swing.JTextField txtRutBuscar;
+    private javax.swing.JTextField txtRutConsulta;
     private javax.swing.JTextField txtRutPostulacion;
     private javax.swing.JTextField txtSexo;
     // End of variables declaration//GEN-END:variables
